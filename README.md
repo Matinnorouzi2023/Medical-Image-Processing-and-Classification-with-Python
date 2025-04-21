@@ -1,276 +1,60 @@
+# 🧠 Medical Image Processing and Classification with Python
 
-🧠 Medical Image Processing and Classification with Python
-GitHub License
+[![GitHub License](https://img.shields.io/github/license/Matinnorouzi2023/Medical-Image-Processing-and-Classification-with-Python)](https://github.com/Matinnorouzi2023/Medical-Image-Processing-and-Classification-with-Python/blob/main/LICENSE)
 
-Welcome to the Medical Image Processing and Classification with Python repository! This project is designed to provide a comprehensive guide for learning and implementing medical image processing and classification techniques using Python. Whether you're a beginner or an experienced developer, this repository will help you understand the fundamentals and advanced concepts of medical imaging.
+Welcome to the **Medical Image Processing and Classification with Python** repository! This project is designed to provide a comprehensive guide for learning and implementing medical image processing and classification techniques using Python. Whether you're a beginner or an experienced developer, this repository will help you understand the fundamentals and advanced concepts of medical imaging.
 
-📚 Table of Contents
-Introduction
-What is Medical Image Processing and Classification?
-Why Python?
-Importance of Learning Medical Image Processing
-Prerequisites
-NumPy Overview
-Machine Learning Basics
-Convolutional Neural Networks (CNNs)
-Medical Imaging Modalities
-X-ray Images
-CT Scans
-MRI Images
-Medical Image Formats
-DICOM Format
-NIFTI Format
-Preprocessing Medical Images
-Classification of Pneumonia Images
-Data Preprocessing
-Model Design and Training
-Evaluation and Testing
-Atrial Segmentation in Heart Images
-UNET Architecture
-Dataset Preparation
-Model Evaluation
-Contributing
-License
-🌟 Introduction
-What is Medical Image Processing and Classification?
+---
+
+## 📚 Table of Contents
+
+1. [Introduction](#introduction)
+   - [What is Medical Image Processing and Classification?](#what-is-medical-image-processing-and-classification)
+   - [Why Python?](#why-python)
+   - [Importance of Learning Medical Image Processing](#importance-of-learning-medical-image-processing)
+2. [Prerequisites](#prerequisites)
+   - [NumPy Overview](#numpy-overview)
+   - [Machine Learning Basics](#machine-learning-basics)
+   - [Convolutional Neural Networks (CNNs)](#convolutional-neural-networks-cnns)
+3. [Medical Imaging Modalities](#medical-imaging-modalities)
+   - [X-ray Images](#x-ray-images)
+   - [CT Scans](#ct-scans)
+   - [MRI Images](#mri-images)
+4. [Medical Image Formats](#medical-image-formats)
+   - [DICOM Format](#dicom-format)
+   - [NIFTI Format](#nifti-format)
+   - [Preprocessing Medical Images](#preprocessing-medical-images)
+5. [Classification of Pneumonia Images](#classification-of-pneumonia-images)
+   - [Data Preprocessing](#data-preprocessing)
+   - [Model Design and Training](#model-design-and-training)
+   - [Evaluation and Testing](#evaluation-and-testing)
+6. [Atrial Segmentation in Heart Images](#atrial-segmentation-in-heart-images)
+   - [UNET Architecture](#unet-architecture)
+   - [Dataset Preparation](#dataset-preparation)
+   - [Model Evaluation](#model-evaluation)
+7. [Contributing](#contributing)
+8. [License](#license)
+
+---
+
+## 🌟 Introduction
+
+### What is Medical Image Processing and Classification?
+
 Medical image processing and classification involve the use of various image processing algorithms to analyze and interpret medical images such as CT scans, MRIs, X-rays, and more. These techniques are crucial in the medical field for tasks like tumor detection, disease diagnosis, and treatment planning.
 
-💡 Did you know?
-Medical imaging has revolutionized healthcare by enabling non-invasive diagnostics and precise treatment planning. 
+> **💡 Did you know?**
+> Medical imaging has revolutionized healthcare by enabling non-invasive diagnostics and precise treatment planning.
 
-Why Python?
+---
+
+### Why Python?
+
 Python is a high-level programming language known for its simplicity and readability. It has become the go-to language for data analysis, machine learning, and computer vision due to its extensive libraries and frameworks, such as NumPy, TensorFlow, PyTorch, and OpenCV.
 
-python
-Copy
-1
-2
-3
-4
-5
+```python
 import numpy as np
 
 # Example: Creating a 2D array
 array = np.array([[1, 2], [3, 4]])
 print(array)
-Importance of Learning Medical Image Processing
-Learning medical image processing opens doors to numerous applications, including:
-
-Retinal Disease Detection
-Detecting diseases like diabetic retinopathy from eye images.
-Skin Condition Identification
-Identifying skin conditions and abnormalities.
-Tumor Analysis
-Analyzing tumors in the digestive system.
-Brain MRI Segmentation
-Segmenting brain MRI images for tumor detection.
-🔧 Prerequisites
-Before diving into medical image processing, it's essential to have a solid understanding of the following topics:
-
-NumPy Overview
-NumPy is a fundamental library for numerical computing in Python. It provides support for arrays, matrices, and mathematical functions, making it ideal for handling image data.
-
-python
-Copy
-1
-2
-3
-4
-5
-import numpy as np
-
-# Example: Creating a 2D array
-array = np.array([[1, 2], [3, 4]])
-print(array)
-Machine Learning Basics
-Understanding the basics of machine learning is crucial for building classification models. Key concepts include supervised vs. unsupervised learning, feature extraction, and model evaluation metrics.
-
-python
-Copy
-1
-2
-3
-4
-from sklearn.model_selection import train_test_split
-
-# Example: Splitting data
-X_train, X_test, y_train, y_test = train_test_split(images, labels, test_size=0.2, random_state=42)
-Convolutional Neural Networks (CNNs)
-CNNs are specialized neural networks designed for image data. They excel at tasks like image classification, object detection, and segmentation.
-
-python
-Copy
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-⌄
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
-
-# Example: Building a simple CNN
-model = Sequential([
-    Conv2D(32, (3, 3), activation='relu', input_shape=(64, 64, 3)),
-    MaxPooling2D((2, 2)),
-    Flatten(),
-    Dense(128, activation='relu'),
-    Dense(1, activation='sigmoid')
-])
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-🩺 Medical Imaging Modalities
-X-ray Images
-X-rays are widely used for diagnosing fractures, infections, and lung conditions like pneumonia. They provide a 2D view of internal structures.
-
-CT Scans
-Computed Tomography (CT) scans generate cross-sectional images of the body, offering detailed views of bones, blood vessels, and soft tissues.
-
-MRI Images
-Magnetic Resonance Imaging (MRI) uses magnetic fields and radio waves to produce detailed images of organs and tissues, especially useful for brain and spinal cord examinations.
-
-📁 Medical Image Formats
-DICOM Format
-The DICOM (Digital Imaging and Communications in Medicine) format is the standard for storing and transmitting medical images. It includes metadata such as patient information and imaging parameters.
-
-python
-Copy
-1
-2
-3
-4
-5
-import pydicom
-
-# Example: Reading a DICOM file
-dicom_file = pydicom.dcmread("path_to_dicom_file.dcm")
-print(dicom_file.pixel_array)
-NIFTI Format
-NIFTI is another popular format for storing neuroimaging data. It is widely used in brain imaging studies.
-
-python
-Copy
-1
-2
-3
-4
-5
-6
-import nibabel as nib
-
-# Example: Loading a NIFTI file
-nifti_file = nib.load("path_to_nifti_file.nii")
-data = nifti_file.get_fdata()
-print(data.shape)
-Preprocessing Medical Images
-Preprocessing steps include normalization, resizing, and augmenting images to ensure consistency and improve model performance.
-
-python
-Copy
-1
-2
-3
-4
-5
-6
-7
-8
-9
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-
-# Example: Data augmentation
-datagen = ImageDataGenerator(
-    rotation_range=20,
-    width_shift_range=0.2,
-    height_shift_range=0.2,
-    horizontal_flip=True
-)
-📊 Classification of Pneumonia Images
-Data Preprocessing
-Load and preprocess the dataset by resizing images, normalizing pixel values, and splitting data into training and testing sets.
-
-python
-Copy
-1
-2
-3
-4
-from sklearn.model_selection import train_test_split
-
-# Example: Splitting data
-X_train, X_test, y_train, y_test = train_test_split(images, labels, test_size=0.2, random_state=42)
-Model Design and Training
-Design a CNN-based model and train it on the preprocessed data.
-
-python
-Copy
-1
-model.fit(X_train, y_train, epochs=10, batch_size=32, validation_data=(X_test, y_test))
-Evaluation and Testing
-Evaluate the model's performance using metrics like accuracy, precision, recall, and F1-score.
-
-python
-Copy
-1
-2
-3
-4
-5
-from sklearn.metrics import classification_report
-
-# Example: Generating a classification report
-y_pred = model.predict(X_test)
-print(classification_report(y_test, y_pred))
-🫀 Atrial Segmentation in Heart Images
-UNET Architecture
-UNET is a popular architecture for image segmentation tasks. It consists of an encoder-decoder structure with skip connections.
-
-python
-Copy
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-⌄
-from tensorflow.keras.models import Model
-from tensorflow.keras.layers import Input, Conv2D, MaxPooling2D, UpSampling2D, concatenate
-
-def unet(input_size=(256, 256, 1)):
-    inputs = Input(input_size)
-    # Encoder layers
-    conv1 = Conv2D(64, (3, 3), activation='relu', padding='same')(inputs)
-    pool1 = MaxPooling2D(pool_size=(2, 2))(conv1)
-    # Decoder layers
-    up1 = UpSampling2D(size=(2, 2))(pool1)
-    concat1 = concatenate([up1, conv1], axis=-1)
-    outputs = Conv2D(1, (1, 1), activation='sigmoid')(concat1)
-    return Model(inputs=[inputs], outputs=[outputs])
-Dataset Preparation
-Prepare the dataset by labeling atrial regions in heart images.
-
-Model Evaluation
-Evaluate the segmentation model using metrics like Intersection over Union (IoU) and Dice Coefficient.
-
-🤝 Contributing
-Contributions are welcome! If you'd like to contribute, please follow these steps:
-
-Fork the repository.
-Create a new branch (git checkout -b feature/YourFeatureName).
-Commit your changes (git commit -m "Add YourFeatureName").
-Push to the branch (git push origin feature/YourFeatureName).
-Open a pull request.
